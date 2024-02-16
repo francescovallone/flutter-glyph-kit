@@ -1,7 +1,7 @@
 # Flutter Glyph Kit
 
 Flutter implementation of the [Glyph-Developer-Kit](https://github.com/Nothing-Developer-Programme/Glyph-Developer-Kit) developed by 
-Nothing Technology <p>&copy;</p>.
+Nothing Technology <span>&copy;</span>.
 
 ## Getting Started
 

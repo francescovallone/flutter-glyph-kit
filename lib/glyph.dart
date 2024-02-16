@@ -1,13 +1,17 @@
 import 'glyph_interface_enum.dart';
 import 'glyph_interface_sdk.dart';
 
-sealed class Glyph<T> {
+/// The abstract class that represent the Glyph Interface.
+
+abstract class Glyph<T> {
 
   final sdkInterface = GlyphInterfaceSdk();
 
   Future<void> toggle({
     required List<T> channels,
-  });
+  }){
+    throw UnimplementedError('toggle() has not been implemented.');
+  }
 
   Future<void> animate({
     required List<T> channels,
@@ -20,6 +24,8 @@ sealed class Glyph<T> {
 
 }
 
+/// The class that represent the Phone1 Glyph.
+/// Contains a basic implementation of the [toggle] and [animate] methods.
 class Phone1Glyph extends Glyph<Phone1Led> {
 
   @override
@@ -65,6 +71,8 @@ class Phone1Glyph extends Glyph<Phone1Led> {
 
 }
 
+/// The class that represent the Phone2 Glyph.
+/// Contains a basic implementation of the [toggle] and [animate] methods.
 class Phone2Glyph extends Glyph<Phone2Led> {
 
   @override

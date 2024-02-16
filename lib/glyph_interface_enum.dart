@@ -1,3 +1,4 @@
+/// Contains the list of leds that can be used in the Phone2Glyph
 enum Phone2Led implements Comparable<int>{
 
   a1(0),
@@ -44,6 +45,7 @@ enum Phone2Led implements Comparable<int>{
 
 }
 
+/// Contains the list of leds that can be used in the Phone1Glyph
 enum Phone1Led implements Comparable<int>{
 
   a1(0),
@@ -73,6 +75,7 @@ enum Phone1Led implements Comparable<int>{
 }
 
 
+/// Contains the platform where the plugin can run.
 enum GlyphCommon {
   phone1,
   phone2

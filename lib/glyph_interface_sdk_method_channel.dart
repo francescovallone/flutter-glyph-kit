@@ -10,8 +10,8 @@ class MethodChannelGlyphInterfaceSdk extends GlyphInterfaceSdkPlatform {
   final methodChannel = const MethodChannel('glyph_interface_sdk');
 
   @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
+  Future<String?> getPlatform() async {
+    final version = await methodChannel.invokeMethod<String>('getPlatform');
     return version;
   }
 
@@ -52,6 +52,60 @@ class MethodChannelGlyphInterfaceSdk extends GlyphInterfaceSdkPlatform {
   }) async {
     await methodChannel.invokeMethod<void>(
       'toggle',
+      <String, dynamic>{
+        'id': id,
+      }
+    );
+  }
+
+  @override
+  Future<void> setPeriod({
+    required String id,
+    required int period,
+  }) async {
+    await methodChannel.invokeMethod<void>(
+      'setPeriod',
+      <String, dynamic>{
+        'id': id,
+        'period': period,
+      }
+    );
+  }
+
+  @override
+  Future<void> setCycles({
+    required String id,
+    required int cycles,
+  }) async {
+    await methodChannel.invokeMethod<void>(
+      'setCycles',
+      <String, dynamic>{
+        'id': id,
+        'cycles': cycles,
+      }
+    );
+  }
+
+  @override
+  Future<void> setInterval({
+    required String id,
+    required int interval,
+  }) async {
+    await methodChannel.invokeMethod<void>(
+      'setInterval',
+      <String, dynamic>{
+        'id': id,
+        'interval': interval,
+      }
+    );
+  }
+
+  @override
+  Future<void> animate({
+    required String id,
+  }) async {
+    await methodChannel.invokeMethod<void>(
+      'animate',
       <String, dynamic>{
         'id': id,
       }

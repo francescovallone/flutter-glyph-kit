@@ -17,7 +17,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  glyph_interface_sdk:
+  flutter_glyph_kit:
     # When depending on this package from a real application you should use:
     #   glyph_interface_sdk: ^x.y.z
     # See https://dart.dev/tools/pub/dependencies#version-constraints

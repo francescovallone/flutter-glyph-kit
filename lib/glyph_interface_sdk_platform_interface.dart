@@ -23,7 +23,7 @@ abstract class GlyphInterfaceSdkPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> getPlatformVersion() {
+  Future<String?> getPlatform() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
@@ -49,4 +49,32 @@ abstract class GlyphInterfaceSdkPlatform extends PlatformInterface {
   }) {
     throw UnimplementedError('toggle() has not been implemented.');
   }
+
+  Future<void> setPeriod({
+    required String id,
+    required int period,
+  }) {
+    throw UnimplementedError('setPeriod() has not been implemented.');
+  }
+
+  Future<void> setCycles({
+    required String id,
+    required int cycles,
+  }) {
+    throw UnimplementedError('setCycles() has not been implemented.');
+  }
+
+  Future<void> setInterval({
+    required String id,
+    required int interval,
+  }) {
+    throw UnimplementedError('setInterval() has not been implemented.');
+  }
+
+  Future<void> animate({
+    required String id,
+  }) {
+    throw UnimplementedError('animate() has not been implemented.');
+  }
+
 }

@@ -75,7 +75,7 @@ class GlyphInterfaceSdkPlugin: FlutterPlugin, MethodCallHandler {
         builderMap[id] = x
         result.success(id)
       }
-      "getVersion" -> {
+      "getPlatform" -> {
         if(Common.is20111()){
           result.success("20111")
         }else{
@@ -106,6 +106,29 @@ class GlyphInterfaceSdkPlugin: FlutterPlugin, MethodCallHandler {
       "toggle" -> {
         val id = call.argument<String>("id") ?: throw Error()
         mGM?.toggle(frameMap[id]!!)
+        result.success(true)
+      }
+      "setPeriod" -> {
+        val id = call.argument<String>("id") ?: throw Error()
+        val period = call.argument<Int>("period") ?: throw Error()
+        builderMap[id] = builderMap[id]?.buildPeriod(period)!!
+        result.success(true)
+      }
+      "setCycles" -> {
+        val id = call.argument<String>("id") ?: throw Error()
+        val cycles = call.argument<Int>("cycles") ?: throw Error()
+        builderMap[id] = builderMap[id]?.buildCycles(cycles)!!
+        result.success(true)
+      }
+      "setInterval" -> {
+        val id = call.argument<String>("id") ?: throw Error()
+        val interval = call.argument<Int>("interval") ?: throw Error()
+        builderMap[id] = builderMap[id]?.buildInterval(interval)!!
+        result.success(true)
+      }
+      "animate" -> {
+        val id = call.argument<String>("id") ?: throw Error()
+        mGM?.animate(frameMap[id]!!)
         result.success(true)
       }
       "getPlatformVersion" -> {

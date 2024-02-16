@@ -71,3 +71,9 @@ enum Phone1Led implements Comparable<int>{
   }
 
 }
+
+
+enum GlyphCommon {
+  phone1,
+  phone2
+}

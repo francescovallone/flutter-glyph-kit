@@ -1,8 +1,7 @@
-import 'package:glyph_interface_sdk/glyph_interface_enum.dart';
-
+import 'glyph_interface_enum.dart';
 import 'glyph_interface_sdk.dart';
 
-abstract class Glyph<T> {
+sealed class Glyph<T> {
 
   final sdkInterface = GlyphInterfaceSdk();
 
@@ -27,7 +26,12 @@ class Phone1Glyph extends Glyph<Phone1Led> {
   Future<void> toggle({
     required List<Phone1Led> channels,
   }) async {
-    throw UnimplementedError('toggle() has not been implemented.');
+    final builderId = await super.sdkInterface.builder();
+    for (final channel in channels) {
+      await super.sdkInterface.channel(id: builderId, channel: channel.value);
+    }
+    await super.sdkInterface.build(id: builderId);
+    await super.sdkInterface.toggle(id: builderId);
   }
 
   @override
@@ -35,9 +39,28 @@ class Phone1Glyph extends Glyph<Phone1Led> {
     required List<Phone1Led> channels,
     Duration? duration,
     int? intervalDuration,
-    int? cycles
+    int? cycles,
+    bool splitBuild = false
   }) async {
-    throw UnimplementedError('animated() has not been implemented.');
+    final builderId = await super.sdkInterface.builder();
+    for (final channel in channels) {
+      await super.sdkInterface.channel(id: builderId, channel: channel.value);
+    }
+    if(duration != null){
+      await super.sdkInterface.setPeriod(id: builderId, period: duration.inMilliseconds);
+    }
+    if(intervalDuration != null){
+      await super.sdkInterface.setInterval(id: builderId, interval: intervalDuration);
+    }
+    if(cycles != null){
+      await super.sdkInterface.setCycles(id: builderId, cycles: cycles);
+    }
+    await super.sdkInterface.build(id: builderId);
+    if(duration == null && intervalDuration == null && cycles == null){
+      await super.sdkInterface.toggle(id: builderId);
+    } else {
+      await super.sdkInterface.animate(id: builderId);
+    }
   }
 
 }
@@ -61,14 +84,27 @@ class Phone2Glyph extends Glyph<Phone2Led> {
     required List<Phone2Led> channels,
     Duration? duration,
     int? intervalDuration,
-    int? cycles
+    int? cycles,
   }) async {
     final builderId = await super.sdkInterface.builder();
     for (final channel in channels) {
       await super.sdkInterface.channel(id: builderId, channel: channel.value);
     }
+    if(duration != null){
+      await super.sdkInterface.setPeriod(id: builderId, period: duration.inMilliseconds);
+    }
+    if(intervalDuration != null){
+      await super.sdkInterface.setInterval(id: builderId, interval: intervalDuration);
+    }
+    if(cycles != null){
+      await super.sdkInterface.setCycles(id: builderId, cycles: cycles);
+    }
     await super.sdkInterface.build(id: builderId);
-    // await super.sdkInterface
+    if(duration == null && intervalDuration == null && cycles == null){
+      await super.sdkInterface.toggle(id: builderId);
+    } else {
+      await super.sdkInterface.animate(id: builderId);
+    }
   }
 
 }

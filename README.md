@@ -59,28 +59,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-	return MaterialApp(
-	  home: Scaffold(
-		appBar: AppBar(
-		  title: const Text('Phone 1 Glyph Example'),
-		),
-		body: Center(
-		  child: ElevatedButton(
-			onPressed: () async {
-			  final glyph = Phone1Glyph();
-			  await glyph.toggle(
-				channels: [
-					Phone1Led.a1,
-					Phone1Led.a2,
-				]
-			  );
-			  // This will turn on the A1 and A2 LEDs
-			},
-			child: const Text('Toggle'),
-		  )
-		),
-	  ),
-	);
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Phone 1 Glyph Example'),
+        ),
+        body: Center(
+          child: ElevatedButton(
+            onPressed: () async {
+              final glyph = Phone1Glyph();
+              await glyph.toggle(
+                channels: [
+                    Phone1Led.a1,
+                    Phone1Led.a2,
+                ]
+              );
+              // This will turn on the A1 and A2 LEDs
+            },
+            child: const Text('Toggle'),
+          )
+        ),
+      ),
+    );
   }
 }
 ```
@@ -101,28 +101,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-	return MaterialApp(
-	  home: Scaffold(
-		appBar: AppBar(
-		  title: const Text('Phone 2 Glyph Example'),
-		),
-		body: Center(
-		  child: ElevatedButton(
-			onPressed: () async {
-			  final glyph = Phone2Glyph();
-			  await glyph.toggle(
-				channels: [
-					Phone2Led.a1,
-					Phone2Led.a2,
-				]
-			  );
-			  // This will turn on the A1 and A2 LEDs
-			},
-			child: const Text('Toggle'),
-		  )
-		),
-	  ),
-	);
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Phone 2 Glyph Example'),
+        ),
+        body: Center(
+          child: ElevatedButton(
+            onPressed: () async {
+              final glyph = Phone2Glyph();
+              await glyph.toggle(
+                channels: [
+                    Phone2Led.a1,
+                    Phone2Led.a2,
+                ]
+              );
+              // This will turn on the A1 and A2 LEDs
+            },
+            child: const Text('Toggle'),
+          )
+        ),
+      ),
+    );
   }
 }
 ```

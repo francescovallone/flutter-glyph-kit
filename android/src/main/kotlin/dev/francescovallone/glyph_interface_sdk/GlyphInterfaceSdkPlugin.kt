@@ -46,12 +46,9 @@ class GlyphInterfaceSdkPlugin: FlutterPlugin, MethodCallHandler {
       override fun onServiceConnected(componentName: ComponentName) {
         if (Common.is20111()){
           val result = mGM?.register(Common.DEVICE_20111)
-          Log.d("GlyphIntegrationFlutter", "${result.toString()} 20111")
         }
         if (Common.is22111()){
-          Log.d("GlyphIntegrationFlutter", mGM.toString())
           val result = mGM?.register(Common.DEVICE_22111)
-          Log.d("GlyphIntegrationFlutter", result.toString())
         }
         try {
           mGM?.openSession()
@@ -61,7 +58,6 @@ class GlyphInterfaceSdkPlugin: FlutterPlugin, MethodCallHandler {
       }
 
       override fun onServiceDisconnected(componentName: ComponentName) {
-        Log.d("GlyphIntegrationFlutter", "Nope!")
         mGM?.closeSession()
       }
     }
@@ -86,9 +82,6 @@ class GlyphInterfaceSdkPlugin: FlutterPlugin, MethodCallHandler {
         val id = call.argument<String>("id") ?: throw Error()
         val channel = call.argument<Int>("channel") ?: throw Error()
         val lightValue = call.argument<Int>("light")
-        Log.d(
-                "GlyphIntegrationFlutter",
-                "Channel: $channel, LightValue: ${lightValue == null}, List: ${builderMap.size}, Builder: ${builderMap[id]}")
         builderMap[id] = if(lightValue == null){
           builderMap[id]?.buildChannel(channel)!!
         }else{
@@ -97,9 +90,7 @@ class GlyphInterfaceSdkPlugin: FlutterPlugin, MethodCallHandler {
         result.success(true)
       }
       "build" -> {
-        Log.d("GlyphIntegrationFlutter", "Build")
         val id = call.argument<String>("id") ?: throw Error()
-        Log.d("GlyphIntegrationFlutter", "Build: $id")
         frameMap[id] = builderMap[id]?.build()!!
         result.success(true)
       }

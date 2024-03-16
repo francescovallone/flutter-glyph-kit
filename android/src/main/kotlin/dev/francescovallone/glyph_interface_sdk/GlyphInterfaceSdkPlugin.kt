@@ -39,7 +39,7 @@ class GlyphInterfaceSdkPlugin: FlutterPlugin, MethodCallHandler {
   }
 
   private fun init() {
-    if(!(Common.is20111() || Common.is22111())){
+    if(!(Common.is20111() || Common.is22111() || Common.is23111()){
       throw RuntimeException("This device is not supported");
     }
     mCallback = object : GlyphManager.Callback {
@@ -49,6 +49,9 @@ class GlyphInterfaceSdkPlugin: FlutterPlugin, MethodCallHandler {
         }
         if (Common.is22111()){
           val result = mGM?.register(Common.DEVICE_22111)
+        }
+        if(Common.is23111()){
+          val result = mGM?.register(Common.DEVICE_23111)
         }
         try {
           mGM?.openSession()
@@ -74,9 +77,11 @@ class GlyphInterfaceSdkPlugin: FlutterPlugin, MethodCallHandler {
       "getPlatform" -> {
         if(Common.is20111()){
           result.success("20111")
-        }else{
+        }
+        if(Common.is22111()){
           result.success("22111")
         }
+        result.success("23111")
       }
       "channel" -> {
         val id = call.argument<String>("id") ?: throw Error()

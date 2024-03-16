@@ -11,7 +11,8 @@ class GlyphInterfaceSdk {
     final result = await GlyphInterfaceSdkPlatform.instance.getPlatform();
     return switch(result){
       '20111' => GlyphCommon.phone1,
-      '20112' => GlyphCommon.phone2,
+      '22111' => GlyphCommon.phone2,
+      '23111' => GlyphCommon.phone2a,
       _ => null,
     };
   }

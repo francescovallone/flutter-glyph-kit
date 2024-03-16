@@ -76,5 +76,4 @@ abstract class GlyphInterfaceSdkPlatform extends PlatformInterface {
   }) {
     throw UnimplementedError('animate() has not been implemented.');
   }
-
 }

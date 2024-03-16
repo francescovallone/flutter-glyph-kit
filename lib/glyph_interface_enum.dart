@@ -1,6 +1,5 @@
 /// Contains the list of leds that can be used in the Phone2Glyph
-enum Phone2Led implements Comparable<int>{
-
+enum Phone2Led implements Comparable<int> {
   a1(0),
   a2(1),
   b1(2),
@@ -42,12 +41,10 @@ enum Phone2Led implements Comparable<int>{
   int compareTo(int other) {
     return value.compareTo(other);
   }
-
 }
 
 /// Contains the list of leds that can be used in the Phone1Glyph
-enum Phone1Led implements Comparable<int>{
-
+enum Phone1Led implements Comparable<int> {
   a1(0),
   b1(1),
   c1(2),
@@ -71,11 +68,9 @@ enum Phone1Led implements Comparable<int>{
   int compareTo(int other) {
     return value.compareTo(other);
   }
-
 }
 
 enum Phone2aLed implements Comparable<int> {
-
   a(25),
   b(24),
   c1(0),
@@ -110,13 +105,7 @@ enum Phone2aLed implements Comparable<int> {
   int compareTo(int other) {
     return value.compareTo(other);
   }
-
 }
-
 
 /// Contains the platform where the plugin can run.
-enum GlyphCommon {
-  phone1,
-  phone2,
-  phone2a
-}
+enum GlyphCommon { phone1, phone2, phone2a }

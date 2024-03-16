@@ -25,37 +25,26 @@ class MethodChannelGlyphInterfaceSdk extends GlyphInterfaceSdkPlatform {
     required String id,
     required int channel,
   }) async {
-    await methodChannel.invokeMethod<void>(
-      'channel', 
-      <String, dynamic>{
-        'id': id,
-        'channel': channel,
-      }
-    );
+    await methodChannel.invokeMethod<void>('channel', <String, dynamic>{
+      'id': id,
+      'channel': channel,
+    });
   }
 
   @override
-  Future<void> build({
-    required String id
-  }) async {
-    await methodChannel.invokeMethod<void>(
-      'build',
-      <String, dynamic>{
-        'id': id,
-      }
-    );
+  Future<void> build({required String id}) async {
+    await methodChannel.invokeMethod<void>('build', <String, dynamic>{
+      'id': id,
+    });
   }
 
   @override
   Future<void> toggle({
     required String id,
   }) async {
-    await methodChannel.invokeMethod<void>(
-      'toggle',
-      <String, dynamic>{
-        'id': id,
-      }
-    );
+    await methodChannel.invokeMethod<void>('toggle', <String, dynamic>{
+      'id': id,
+    });
   }
 
   @override
@@ -63,13 +52,10 @@ class MethodChannelGlyphInterfaceSdk extends GlyphInterfaceSdkPlatform {
     required String id,
     required int period,
   }) async {
-    await methodChannel.invokeMethod<void>(
-      'setPeriod',
-      <String, dynamic>{
-        'id': id,
-        'period': period,
-      }
-    );
+    await methodChannel.invokeMethod<void>('setPeriod', <String, dynamic>{
+      'id': id,
+      'period': period,
+    });
   }
 
   @override
@@ -77,13 +63,10 @@ class MethodChannelGlyphInterfaceSdk extends GlyphInterfaceSdkPlatform {
     required String id,
     required int cycles,
   }) async {
-    await methodChannel.invokeMethod<void>(
-      'setCycles',
-      <String, dynamic>{
-        'id': id,
-        'cycles': cycles,
-      }
-    );
+    await methodChannel.invokeMethod<void>('setCycles', <String, dynamic>{
+      'id': id,
+      'cycles': cycles,
+    });
   }
 
   @override
@@ -91,25 +74,18 @@ class MethodChannelGlyphInterfaceSdk extends GlyphInterfaceSdkPlatform {
     required String id,
     required int interval,
   }) async {
-    await methodChannel.invokeMethod<void>(
-      'setInterval',
-      <String, dynamic>{
-        'id': id,
-        'interval': interval,
-      }
-    );
+    await methodChannel.invokeMethod<void>('setInterval', <String, dynamic>{
+      'id': id,
+      'interval': interval,
+    });
   }
 
   @override
   Future<void> animate({
     required String id,
   }) async {
-    await methodChannel.invokeMethod<void>(
-      'animate',
-      <String, dynamic>{
-        'id': id,
-      }
-    );
+    await methodChannel.invokeMethod<void>('animate', <String, dynamic>{
+      'id': id,
+    });
   }
-
 }

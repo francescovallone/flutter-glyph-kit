@@ -10,3 +10,8 @@
 ## 0.1.0
 
 * Consolidate the package
+
+## 0.1.1
+
+* Add the `Phone2aGlyph` class.
+* Add the `Phone2aLed` enum.

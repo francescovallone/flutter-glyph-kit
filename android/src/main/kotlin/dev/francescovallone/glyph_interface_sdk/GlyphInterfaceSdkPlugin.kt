@@ -39,7 +39,7 @@ class GlyphInterfaceSdkPlugin: FlutterPlugin, MethodCallHandler {
   }
 
   private fun init() {
-    if(!(Common.is20111() || Common.is22111() || Common.is23111()){
+    if(!(Common.is20111() || Common.is22111() || Common.is23111())){
       throw RuntimeException("This device is not supported");
     }
     mCallback = object : GlyphManager.Callback {
